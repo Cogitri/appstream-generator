@@ -447,11 +447,11 @@ public:
 
         string dataBaseFname;
         if (conf.metadataType == DataType.XML)
-            dataBaseFname = buildPath (dataExportDir, format ("Components-%s.xml", arch));
+            dataBaseFname = buildPath (dataExportDir, format ("Components-%s-%s.xml", section, arch));
         else
-            dataBaseFname = buildPath (dataExportDir, format ("Components-%s.yml", arch));
-        immutable cidIndexFname = buildPath (dataExportDir, format ("CID-Index-%s.json", arch));
-        immutable hintsBaseFname = buildPath (hintsExportDir, format ("Hints-%s.json", arch));
+            dataBaseFname = buildPath (dataExportDir, format ("Components-%s-%s.yml", section, arch));
+        immutable cidIndexFname = buildPath (dataExportDir, format ("CID-Index-%s-%s.json", section, arch));
+        immutable hintsBaseFname = buildPath (hintsExportDir, format ("Hints-%s-%s.json", section, arch));
 
         // write metadata
         logInfo ("Writing metadata for %s/%s [%s]", suite.name, section, arch);
